@@ -1,5 +1,5 @@
 const express = require('express');
-const routes = require('./routes');
+const routes = require('./controllers');
 const sequilize = require('./config/connection');
 const path = require('path');
 
