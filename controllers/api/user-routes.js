@@ -97,7 +97,17 @@ router.post('/login', (req, res) => {
         });
     });
 });
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(404).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
 
+});
 //PUT /api/users/:id
 router.put('/:id', (req, res) => {
     User.update(req.body, {
